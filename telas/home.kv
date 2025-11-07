@@ -58,39 +58,6 @@
         valign: 'middle'
         text_size: self.size
 
-<SubBanner@BoxLayout>:
-    size_hint_y: None
-    height: dp(70)
-    spacing: dp(10)
-    padding: dp(5)
-    BoxLayout:
-        canvas.before:
-            Color:
-                rgba: 0.1, 0.1, 0.1, 1
-            Rectangle:
-                pos: self.pos
-                size: self.size
-        Label:
-            markup: True
-            text: "[b]STAR\\nWARS[/b]"
-            color: 1, 1, 1, 1
-            halign: 'center'
-            valign: 'middle'
-            text_size: self.size
-    BoxLayout:
-        canvas.before:
-            Color:
-                rgba: 1, 0.85, 0.2, 1
-            Rectangle:
-                pos: self.pos
-                size: self.size
-        Label:
-            text: "Disney+"
-            color: 0, 0, 0, 1
-            halign: 'center'
-            valign: 'middle'
-            text_size: self.size
-
 <ProductCard>:
     orientation: 'vertical'
     size_hint_y: None
@@ -158,7 +125,14 @@
                 height: self.minimum_height
 
                 Banner:
-                SubBanner:
+
+                # --- Carrossel de Subbanners ---
+                Carousel:
+                    id: subbanner_carousel
+                    direction: 'right'
+                    loop: True
+                    size_hint_y: None
+                    height: dp(70)
 
                 Label:
                     text: "PRODUTOS EM DESTAQUE"
